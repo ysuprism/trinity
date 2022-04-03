@@ -1,10 +1,9 @@
+import { NextPage } from 'next';
 import Header from './header';
 import styles from './layout.module.css';
-export default function Layout({ children }: any) {
-  return (
-    <div className={styles.bg}>
-      <Header />
-      {children}
-    </div>
-  );
-}
+
+const Layout: NextPage = ({ children }) => {
+  return <Header>{children}</Header>;
+};
+
+export default Layout;
