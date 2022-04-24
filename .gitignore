@@ -149,3 +149,5 @@ dist
 *.vsix
 
 .DS_Store
+
+.next/*
