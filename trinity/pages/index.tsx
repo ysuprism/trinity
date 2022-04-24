@@ -1,3 +1,5 @@
+import { Typography } from '@mui/material';
+import zIndex from '@mui/material/styles/zIndex';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -23,12 +25,30 @@ const Home: NextPage = () => {
     window.addEventListener('scroll', handle(inputRef3));
     window.addEventListener('scroll', handle(inputRef4));
   }, []);
+
   return (
     <Layout>
       <Head>
         <title>トップページ</title>
       </Head>
-      <Image src='/images/eth.png' width={400} height={300} layout='responsive' alt='ETH'></Image>
+      <div style={{ position: 'relative', height: '600px' }}>
+        <div className='triangle-wrap'>
+          <div className='triangle1-wrap'>
+            <div className='triangle1'></div>
+          </div>
+          {/*<div className='triangle1-wrap'>
+            <div className='triangle1'></div>
+          </div>
+          <div className='triangle1-wrap'>
+            <div className='triangle1'></div>
+  </div>*/}
+        </div>
+        <div className='overlay'>
+          <Typography fontWeight={'bold'} fontSize={200} textAlign={'center'}>
+            Medical Trinity
+          </Typography>
+        </div>
+      </div>
       <section id='title'>
         <div className='center'>
           <div>
@@ -105,6 +125,47 @@ const Home: NextPage = () => {
         }
         section#process {
           background-color: wheat;
+        }
+        .triangle-wrap {
+          position: absolute;
+          width: 80%;
+          height: 80%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .triangle1-wrap {
+          width: 400px;
+          height: 400px;
+          position: absolute;
+          top: 30%;
+          left: 35%;
+          transform: rotate(20deg) skew(-10deg);
+          overflow: hidden;
+        }
+        .triangle1 {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          transform: rotate(45deg);
+          background: url(images/カラフル１.jpg);
+          background-size: cover;
+        }
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        .overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
       `}</style>
     </Layout>
