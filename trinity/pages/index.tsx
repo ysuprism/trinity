@@ -8,25 +8,6 @@ import React, { RefObject, useEffect, useRef, useState } from 'react';
 import Layout from '../components/layout';
 
 const Home: NextPage = () => {
-  const inputRef = useRef<HTMLDivElement>(null);
-  const inputRef2 = useRef<HTMLDivElement>(null);
-  const inputRef3 = useRef<HTMLDivElement>(null);
-  const inputRef4 = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handle = (ref: RefObject<HTMLDivElement>) => () => {
-      if (!ref.current) return;
-      if (ref.current.offsetTop < window.scrollY + window.innerHeight - 150) {
-        ref.current.style.opacity = '1';
-        ref.current.style.transition = '2s';
-      }
-    };
-    window.addEventListener('scroll', handle(inputRef));
-    window.addEventListener('scroll', handle(inputRef2));
-    window.addEventListener('scroll', handle(inputRef3));
-    window.addEventListener('scroll', handle(inputRef4));
-  }, []);
-
   return (
     <Layout>
       <Head>
@@ -49,7 +30,7 @@ const Home: NextPage = () => {
             position: 'absolute',
             background: 'yellow',
             zIndex: '1',
-            animation: 'animation1 4s ease-in 0s 1',
+            animation: 'animation1 2s ease-in 0s forwards',
           }}
         ></div>
         <Typography
@@ -62,88 +43,133 @@ const Home: NextPage = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: '5',
-            pointerEvents: 'none',
           }}
         >
           Medical Trinity
         </Typography>
       </div>
       <section id={'title'}>
-        <div className={'center'}>
-          <div>
-            <p>家庭教師　個人契約の新たな形態</p>
-          </div>
-        </div>
+        <div>家庭教師　個人契約の新たな形態</div>
       </section>
       <section id={'content'}>
-        <div className={'left'} ref={inputRef}>
-          <p>チームでサポート</p>
-        </div>
-        <div className={'right'} ref={inputRef2}>
-          <p>コンサルタントが最適な教師を紹介</p>
-        </div>
-        <div className={'left'} ref={inputRef3}>
-          <p>選び抜かれた参考書</p>
-        </div>
-        <div className={'right'} ref={inputRef4}>
-          <p>無理のないカリキュラムの作成</p>
-        </div>
+        <ul style={{ listStyleType: 'none' }}>
+          <li>
+            <div className={'item1'}>チームでサポート</div>
+          </li>
+          <li>
+            <div className={'item2'}>コンサルタントが最適な教師を紹介</div>
+          </li>
+          <li>
+            <div className={'item3'}>選び抜かれた参考書</div>
+          </li>
+          <li>
+            <div className={'item4'}>無理のないカリキュラムの作成</div>
+          </li>
+        </ul>
       </section>
       <section id={'price'}>
-        <div className={'center'}>
-          <p>料金</p>
-        </div>
+        <div>料金</div>
       </section>
       <section id={'process'}>
-        <div className={'center'}>
-          <p>ご契約までの流れ</p>
-        </div>
+        <div>ご契約までの流れ</div>
       </section>
       <style jsx>{`
-        p {
-          width: 400px;
-          height: 300px;
-          border: 3px solid black;
+        ul {
+          margin: 0;
+        }
+        #title {
+          width: 100%;
+          height: 400px;
+          background: #000099;
+          position: relative;
+        }
+        #title div {
+          width: 80%;
+          height: 80%;
+          background: white;
+          position: absolute;
+          top: 50%;
+          left: 0%;
+          transform: translate(-100%, -50%);
+          text-align: center;
+          border: 40px solid black;
           border-radius: 40px;
-          background-color: #eeeeee;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 50px;
-          margin-bottom: 50px;
+          animation: animation3 2s ease-in 5s forwards;
         }
-        section#title p {
-          width: 700px;
-          height: 200px;
+        #content {
+          width: 100%;
+          height: 1600px;
+          background: wheat;
+          position: relative;
         }
-        .center {
-          display: flex;
-          justify-content: center;
+        #content div {
+          width: 40%;
+          height: 20%;
+          background: white;
+          position: absolute;
+          text-align: center;
+          border: 30px solid black;
+          border-radius: 40px;
         }
-        .left {
-          display: flex;
-          justify-content: flex-start;
-          margin-left: 100px;
+        .item1 {
+          top: 2.5%;
+          left: 0%;
+          transform: translateX(-100%);
+          animation: animation-left 2s ease-in 6.5s forwards;
         }
-        .right {
-          display: flex;
-          justify-content: flex-end;
-          margin-right: 100px;
+        .item2 {
+          top: 27.5%;
+          left: 100%;
+          animation: animation-right 2s ease-in 8.5s forwards;
         }
-        section#title {
-          background-color: #000099;
+        .item3 {
+          top: 52.5%;
+          left: 0%;
+          transform: translateX(-100%);
+          animation: animation-left 2s ease-in 10.5s forwards;
         }
-        section#content {
-          background-color: wheat;
+        .item4 {
+          top: 77.5%;
+          left: 100%;
+          animation: animation-right 2s ease-in 12.5s forwards;
         }
-        section#content div {
-          opacity: 0;
+        #price {
+          width: 100%;
+          height: 400px;
+          background: #000099;
+          position: relative;
         }
-        section#price {
-          background-color: #000099;
+        #price div {
+          width: 80%;
+          height: 80%;
+          background: white;
+          position: absolute;
+          top: 50%;
+          left: 0%;
+          transform: translate(-100%, -50%);
+          text-align: center;
+          border: 40px solid black;
+          border-radius: 40px;
+          animation: animation3 2s ease-in 13s forwards;
         }
-        section#process {
-          background-color: wheat;
+        #process {
+          width: 100%;
+          height: 400px;
+          background: wheat;
+          position: relative;
+        }
+        #process div {
+          width: 80%;
+          height: 80%;
+          background: white;
+          position: absolute;
+          top: 50%;
+          left: 0%;
+          transform: translate(-100%, -50%);
+          text-align: center;
+          border: 40px solid black;
+          border-radius: 40px;
+          animation: animation3 2s ease-in 15s forwards;
         }
         .triangle1-wrap {
           width: 200px;
@@ -165,7 +191,7 @@ const Home: NextPage = () => {
           background: url(images/カラフル１.jpg);
           background-size: cover;
           opacity: 0;
-          animation: animation2 2s ease-in 4.5s forwards;
+          animation: animation2 2s ease-in 2.5s forwards;
         }
         .triangle2-wrap {
           width: 400px;
@@ -186,7 +212,7 @@ const Home: NextPage = () => {
           transform: rotate(45deg);
           background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
           opacity: 0;
-          animation: animation2 2s ease-in 4.6s forwards;
+          animation: animation2 2s ease-in 2.6s forwards;
         }
         .triangle3-wrap {
           width: 600px;
@@ -208,14 +234,11 @@ const Home: NextPage = () => {
           background: url(images/カラフル１.jpg);
           background-size: cover;
           opacity: 0;
-          animation: animation2 2s ease-in 4.7s forwards;
+          animation: animation2 2s ease-in 2.7s forwards;
         }
         @keyframes animation1 {
           0% {
             width: 0;
-          }
-          50% {
-            width: 100%;
           }
           100% {
             width: 50%;
@@ -227,6 +250,21 @@ const Home: NextPage = () => {
           }
           100% {
             opacity: 1;
+          }
+        }
+        @keyframes animation3 {
+          100% {
+            transform: translate(12.5%, -50%);
+          }
+        }
+        @keyframes animation-left {
+          100% {
+            transform: translateX(12.5%);
+          }
+        }
+        @keyframes animation-right {
+          100% {
+            transform: translateX(-112.5%);
           }
         }
       `}</style>
