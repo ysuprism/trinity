@@ -165,7 +165,7 @@ const Home: NextPage = () => {
           background: url(images/カラフル１.jpg);
           background-size: cover;
           opacity: 0;
-          animation: animation2 1s ease-in 4.5s forwards;
+          animation: animation2 2s ease-in 4.5s forwards;
         }
         .triangle2-wrap {
           width: 400px;
@@ -186,7 +186,7 @@ const Home: NextPage = () => {
           transform: rotate(45deg);
           background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
           opacity: 0;
-          animation: animation2 1s ease-in 4.5s forwards;
+          animation: animation2 2s ease-in 4.6s forwards;
         }
         .triangle3-wrap {
           width: 600px;
@@ -208,7 +208,7 @@ const Home: NextPage = () => {
           background: url(images/カラフル１.jpg);
           background-size: cover;
           opacity: 0;
-          animation: animation2 1s ease-in 4.5s forwards;
+          animation: animation2 2s ease-in 4.7s forwards;
         }
         @keyframes animation1 {
           0% {
