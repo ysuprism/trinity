@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { RefObject, useEffect, useRef } from 'react';
+import React, { RefObject, useEffect, useRef, useState } from 'react';
 import Layout from '../components/layout';
 
 const Home: NextPage = () => {
@@ -12,6 +12,7 @@ const Home: NextPage = () => {
   const inputRef2 = useRef<HTMLDivElement>(null);
   const inputRef3 = useRef<HTMLDivElement>(null);
   const inputRef4 = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handle = (ref: RefObject<HTMLDivElement>) => () => {
       if (!ref.current) return;
@@ -32,51 +33,69 @@ const Home: NextPage = () => {
         <title>トップページ</title>
       </Head>
       <div style={{ position: 'relative', height: '600px' }}>
-        <div className='triangle-wrap'>
-          <div className='triangle1-wrap'>
-            <div className='triangle1'></div>
-          </div>
-          {/*<div className='triangle1-wrap'>
-            <div className='triangle1'></div>
-          </div>
-          <div className='triangle1-wrap'>
-            <div className='triangle1'></div>
-  </div>*/}
+        <div className={'triangle1-wrap'}>
+          <div className={'triangle1'}></div>
         </div>
-        <div className='overlay'>
-          <Typography fontWeight={'bold'} fontSize={200} textAlign={'center'}>
-            Medical Trinity
-          </Typography>
+        <div className={'triangle2-wrap'}>
+          <div className={'triangle2'}></div>
         </div>
+        <div className={'triangle3-wrap'}>
+          <div className={'triangle3'}></div>
+        </div>
+        <div
+          style={{
+            width: '50%',
+            height: '100%',
+            position: 'absolute',
+            background: 'yellow',
+            zIndex: '1',
+            animation: 'animation1 4s ease-in 0s 1',
+          }}
+        ></div>
+        <Typography
+          fontWeight={'bold'}
+          fontSize={200}
+          textAlign={'center'}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: '5',
+            pointerEvents: 'none',
+          }}
+        >
+          Medical Trinity
+        </Typography>
       </div>
-      <section id='title'>
-        <div className='center'>
+      <section id={'title'}>
+        <div className={'center'}>
           <div>
             <p>家庭教師　個人契約の新たな形態</p>
           </div>
         </div>
       </section>
-      <section id='content'>
-        <div className='left' ref={inputRef}>
+      <section id={'content'}>
+        <div className={'left'} ref={inputRef}>
           <p>チームでサポート</p>
         </div>
-        <div className='right' ref={inputRef2}>
+        <div className={'right'} ref={inputRef2}>
           <p>コンサルタントが最適な教師を紹介</p>
         </div>
-        <div className='left' ref={inputRef3}>
+        <div className={'left'} ref={inputRef3}>
           <p>選び抜かれた参考書</p>
         </div>
-        <div className='right' ref={inputRef4}>
+        <div className={'right'} ref={inputRef4}>
           <p>無理のないカリキュラムの作成</p>
         </div>
       </section>
-      <section id='price'>
-        <div className='center'>
+      <section id={'price'}>
+        <div className={'center'}>
           <p>料金</p>
         </div>
       </section>
-      <section id='process'>
-        <div className='center'>
+      <section id={'process'}>
+        <div className={'center'}>
           <p>ご契約までの流れ</p>
         </div>
       </section>
@@ -126,22 +145,15 @@ const Home: NextPage = () => {
         section#process {
           background-color: wheat;
         }
-        .triangle-wrap {
-          position: absolute;
-          width: 80%;
-          height: 80%;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
         .triangle1-wrap {
-          width: 400px;
-          height: 400px;
+          width: 200px;
+          height: 200px;
           position: absolute;
-          top: 30%;
-          left: 35%;
+          top: 40%;
+          left: 40%;
           transform: rotate(20deg) skew(-10deg);
           overflow: hidden;
+          z-index: 4;
         }
         .triangle1 {
           width: 100%;
@@ -152,20 +164,70 @@ const Home: NextPage = () => {
           transform: rotate(45deg);
           background: url(images/カラフル１.jpg);
           background-size: cover;
+          opacity: 0;
+          animation: animation2 1s ease-in 4.5s forwards;
         }
-        @keyframes spin {
+        .triangle2-wrap {
+          width: 400px;
+          height: 400px;
+          position: absolute;
+          top: 35%;
+          left: 35%;
+          transform: rotate(20deg) skew(-10deg);
+          overflow: hidden;
+          z-index: 3;
+        }
+        .triangle2 {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          transform: rotate(45deg);
+          background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+          opacity: 0;
+          animation: animation2 1s ease-in 4.5s forwards;
+        }
+        .triangle3-wrap {
+          width: 600px;
+          height: 600px;
+          position: absolute;
+          top: 30%;
+          left: 30%;
+          transform: rotate(20deg) skew(-10deg);
+          overflow: hidden;
+          z-index: 2;
+        }
+        .triangle3 {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          transform: rotate(45deg);
+          background: url(images/カラフル１.jpg);
+          background-size: cover;
+          opacity: 0;
+          animation: animation2 1s ease-in 4.5s forwards;
+        }
+        @keyframes animation1 {
           0% {
-            transform: rotate(0deg);
+            width: 0;
+          }
+          50% {
+            width: 100%;
           }
           100% {
-            transform: rotate(360deg);
+            width: 50%;
           }
         }
-        .overlay {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+        @keyframes animation2 {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
       `}</style>
     </Layout>
