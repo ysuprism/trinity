@@ -214,7 +214,7 @@ const Home: NextPage = () => {
           left: 0%;
           transform: translate(-100%, -50%);
           text-align: center;
-          border: 40px solid black;
+          border: 30px solid black;
           border-radius: 40px;
         }
         .bg {
@@ -273,7 +273,7 @@ const Home: NextPage = () => {
           left: 0%;
           transform: translate(-100%, -50%);
           text-align: center;
-          border: 40px solid black;
+          border: 30px solid black;
           border-radius: 40px;
         }
         #process {
@@ -291,7 +291,7 @@ const Home: NextPage = () => {
           left: 0%;
           transform: translate(-100%, -50%);
           text-align: center;
-          border: 40px solid black;
+          border: 30px solid black;
           border-radius: 40px;
         }
         .triangle1-wrap {
