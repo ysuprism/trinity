@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       const rect = ref1.current.getBoundingClientRect();
       const top = rect.top;
       if (top < window.innerHeight / 2) {
-        ref1.current.classList.add('ani3');
+        ref1.current.classList.add('ani2');
         setTriggered1(true);
       }
     }
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
       const rect = ref2.current.getBoundingClientRect();
       const top = rect.top;
       if (top < window.innerHeight / 2) {
-        ref2.current.classList.add('ani-left');
+        ref2.current.classList.add('ani2');
         setTriggered2(true);
       }
     }
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
       const rect = ref3.current.getBoundingClientRect();
       const top = rect.top;
       if (top < window.innerHeight / 2) {
-        ref3.current.classList.add('ani-right');
+        ref3.current.classList.add('ani2');
         setTriggered3(true);
       }
     }
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
       const rect = ref4.current.getBoundingClientRect();
       const top = rect.top;
       if (top < window.innerHeight / 2) {
-        ref4.current.classList.add('ani-left');
+        ref4.current.classList.add('ani2');
         setTriggered4(true);
       }
     }
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
       const rect = ref5.current.getBoundingClientRect();
       const top = rect.top;
       if (top < window.innerHeight / 2) {
-        ref5.current.classList.add('ani-right');
+        ref5.current.classList.add('ani2');
         setTriggered5(true);
       }
     }
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
       const rect = ref6.current.getBoundingClientRect();
       const top = rect.top;
       if (top < window.innerHeight / 2) {
-        ref6.current.classList.add('ani3');
+        ref6.current.classList.add('ani2');
         setTriggered6(true);
       }
     }
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
       const rect = ref7.current.getBoundingClientRect();
       const top = rect.top;
       if (top < (window.innerHeight * 2) / 3) {
-        ref7.current.classList.add('ani3');
+        ref7.current.classList.add('ani2');
         setTriggered7(true);
       }
     }
@@ -211,11 +211,12 @@ const Home: NextPage = () => {
           background: white;
           position: absolute;
           top: 50%;
-          left: 0%;
-          transform: translate(-100%, -50%);
+          left: 50%;
+          transform: translate(-50%, -50%);
           text-align: center;
           border: 30px solid black;
           border-radius: 40px;
+          opacity: 0;
         }
         .bg {
           width: 50%;
@@ -239,24 +240,23 @@ const Home: NextPage = () => {
           text-align: center;
           border: 30px solid black;
           border-radius: 40px;
+          opacity: 0;
         }
         .item1 {
           top: 2.5%;
-          left: 0%;
-          transform: translateX(-100%);
+          left: 5%;
         }
         .item2 {
           top: 27.5%;
-          left: 100%;
+          left: 55%;
         }
         .item3 {
           top: 52.5%;
-          left: 0%;
-          transform: translateX(-100%);
+          left: 5%;
         }
         .item4 {
           top: 77.5%;
-          left: 100%;
+          left: 55%;
         }
         #price {
           width: 100%;
@@ -270,11 +270,12 @@ const Home: NextPage = () => {
           background: white;
           position: absolute;
           top: 50%;
-          left: 0%;
-          transform: translate(-100%, -50%);
+          left: 50%;
+          transform: translate(-50%, -50%);
           text-align: center;
           border: 30px solid black;
           border-radius: 40px;
+          opacity: 0;
         }
         #process {
           width: 100%;
@@ -288,11 +289,12 @@ const Home: NextPage = () => {
           background: white;
           position: absolute;
           top: 50%;
-          left: 0%;
-          transform: translate(-100%, -50%);
+          left: 50%;
+          transform: translate(-50%, -50%);
           text-align: center;
           border: 30px solid black;
           border-radius: 40px;
+          opacity: 0;
         }
         .triangle1-wrap {
           width: 200px;
@@ -374,6 +376,9 @@ const Home: NextPage = () => {
           100% {
             opacity: 1;
           }
+        }
+        .ani2 {
+          animation: animation2 1s ease-in 0s forwards;
         }
         @keyframes animation3 {
           100% {
