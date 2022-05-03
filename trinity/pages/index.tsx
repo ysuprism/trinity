@@ -136,7 +136,7 @@ const Home: NextPage = () => {
       <Head>
         <title>トップページ</title>
       </Head>
-      <div style={{ position: 'relative', height: '600px' }}>
+      <div style={{ position: 'relative', height: '700px' }}>
         <div className={'triangle1-wrap'}>
           <div className={'triangle1'}></div>
         </div>
