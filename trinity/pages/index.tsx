@@ -1,10 +1,7 @@
 import { Typography } from '@mui/material';
-import zIndex from '@mui/material/styles/zIndex';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { RefObject, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '../components/layout';
 
 const Home: NextPage = () => {
@@ -131,22 +128,51 @@ const Home: NextPage = () => {
     }
   }, [triggered1, triggered2, triggered3, triggered4, triggered5, triggered6, triggered7]);
 
+  const canvasRef = useRef(null);
+  const img = new Image();
+  img.src = 'images/カラフル１.jpg';
+  img.onload = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, ctx.width, ctx.height);
+    const pattern = ctx.createPattern(img, 'no-repeat');
+    ctx.fillStyle = pattern;
+    ctx.beginPath();
+    ctx.moveTo(25, 50);
+    ctx.lineTo(25, 550);
+    ctx.lineTo(575, 300);
+    ctx.fill();
+    ctx.fillStyle = 'blue';
+    ctx.beginPath();
+    ctx.moveTo(100, 150);
+    ctx.lineTo(100, 450);
+    ctx.lineTo(430, 300);
+    ctx.fill();
+    ctx.fillStyle = pattern;
+    ctx.beginPath();
+    ctx.moveTo(154, 220);
+    ctx.lineTo(154, 380);
+    ctx.lineTo(330, 300);
+    ctx.fill();
+  };
+
   return (
     <Layout>
       <Head>
         <title>トップページ</title>
       </Head>
       <div style={{ position: 'relative', height: '700px' }}>
-        <div className={'triangle1-wrap'}>
-          <div className={'triangle1'}></div>
-        </div>
-        <div className={'triangle2-wrap'}>
-          <div className={'triangle2'}></div>
-        </div>
-        <div className={'triangle3-wrap'}>
-          <div className={'triangle3'}></div>
-        </div>
-        <div className={'bg'}></div>
+        <canvas
+          width={600}
+          height={600}
+          ref={canvasRef}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        ></canvas>
         <Typography
           fontWeight={'bold'}
           fontSize={200}
@@ -295,71 +321,6 @@ const Home: NextPage = () => {
           border: 30px solid black;
           border-radius: 40px;
           opacity: 0;
-        }
-        .triangle1-wrap {
-          width: 200px;
-          height: 200px;
-          position: absolute;
-          top: 40%;
-          left: 40%;
-          transform: rotate(20deg) skew(-10deg);
-          overflow: hidden;
-          z-index: 4;
-        }
-        .triangle1 {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          transform: rotate(45deg);
-          background: url(images/カラフル１.jpg);
-          background-size: cover;
-          opacity: 0;
-          animation: animation2 2s ease-in 2.5s forwards;
-        }
-        .triangle2-wrap {
-          width: 400px;
-          height: 400px;
-          position: absolute;
-          top: 35%;
-          left: 35%;
-          transform: rotate(20deg) skew(-10deg);
-          overflow: hidden;
-          z-index: 3;
-        }
-        .triangle2 {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          transform: rotate(45deg);
-          background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-          opacity: 0;
-          animation: animation2 2s ease-in 2.6s forwards;
-        }
-        .triangle3-wrap {
-          width: 600px;
-          height: 600px;
-          position: absolute;
-          top: 30%;
-          left: 30%;
-          transform: rotate(20deg) skew(-10deg);
-          overflow: hidden;
-          z-index: 2;
-        }
-        .triangle3 {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          transform: rotate(45deg);
-          background: url(images/カラフル１.jpg);
-          background-size: cover;
-          opacity: 0;
-          animation: animation2 2s ease-in 2.7s forwards;
         }
         @keyframes animation1 {
           0% {
