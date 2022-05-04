@@ -1,160 +1,91 @@
 import { Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Layout from '../components/layout';
 
 const Home: NextPage = () => {
-  const [triggered1, setTriggered1] = useState(false);
-  const [triggered2, setTriggered2] = useState(false);
-  const [triggered3, setTriggered3] = useState(false);
-  const [triggered4, setTriggered4] = useState(false);
-  const [triggered5, setTriggered5] = useState(false);
-  const [triggered6, setTriggered6] = useState(false);
-  const [triggered7, setTriggered7] = useState(false);
-  const ref1 = useRef<HTMLDivElement | null>(null);
-  const ref2 = useRef<HTMLDivElement | null>(null);
-  const ref3 = useRef<HTMLDivElement | null>(null);
-  const ref4 = useRef<HTMLDivElement | null>(null);
-  const ref5 = useRef<HTMLDivElement | null>(null);
-  const ref6 = useRef<HTMLDivElement | null>(null);
-  const ref7 = useRef<HTMLDivElement | null>(null);
-
-  const scrollHandler1 = () => {
-    if (ref1 && ref1.current) {
-      const rect = ref1.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < window.innerHeight / 2) {
-        ref1.current.classList.add('ani2');
-        setTriggered1(true);
-      }
-    }
-  };
-
-  const scrollHandler2 = () => {
-    if (ref2 && ref2.current) {
-      const rect = ref2.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < window.innerHeight / 2) {
-        ref2.current.classList.add('ani2');
-        setTriggered2(true);
-      }
-    }
-  };
-
-  const scrollHandler3 = () => {
-    if (ref3 && ref3.current) {
-      const rect = ref3.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < window.innerHeight / 2) {
-        ref3.current.classList.add('ani2');
-        setTriggered3(true);
-      }
-    }
-  };
-
-  const scrollHandler4 = () => {
-    if (ref4 && ref4.current) {
-      const rect = ref4.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < window.innerHeight / 2) {
-        ref4.current.classList.add('ani2');
-        setTriggered4(true);
-      }
-    }
-  };
-
-  const scrollHandler5 = () => {
-    if (ref5 && ref5.current) {
-      const rect = ref5.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < window.innerHeight / 2) {
-        ref5.current.classList.add('ani2');
-        setTriggered5(true);
-      }
-    }
-  };
-
-  const scrollHandler6 = () => {
-    if (ref6 && ref6.current) {
-      const rect = ref6.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < window.innerHeight / 2) {
-        ref6.current.classList.add('ani2');
-        setTriggered6(true);
-      }
-    }
-  };
-
-  const scrollHandler7 = () => {
-    if (ref7 && ref7.current) {
-      const rect = ref7.current.getBoundingClientRect();
-      const top = rect.top;
-      if (top < (window.innerHeight * 2) / 3) {
-        ref7.current.classList.add('ani2');
-        setTriggered7(true);
-      }
-    }
-  };
+  const ref = useRef<HTMLDivElement>(null);
+  const ref2 = useRef<HTMLDivElement>(null);
+  const ref3 = useRef<HTMLDivElement>(null);
+  const ref4 = useRef<HTMLDivElement>(null);
+  const ref5 = useRef<HTMLDivElement>(null);
+  const ref6 = useRef<HTMLDivElement>(null);
+  const ref7 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!triggered1) {
-      window.addEventListener('scroll', scrollHandler1);
-      return () => window.removeEventListener('scroll', scrollHandler1);
-    }
-    if (!triggered2) {
-      window.addEventListener('scroll', scrollHandler2);
-      return () => window.removeEventListener('scroll', scrollHandler2);
-    }
-    if (!triggered3) {
-      window.addEventListener('scroll', scrollHandler3);
-      return () => window.removeEventListener('scroll', scrollHandler3);
-    }
-    if (!triggered4) {
-      window.addEventListener('scroll', scrollHandler4);
-      return () => window.removeEventListener('scroll', scrollHandler4);
-    }
-    if (!triggered5) {
-      window.addEventListener('scroll', scrollHandler5);
-      return () => window.removeEventListener('scroll', scrollHandler5);
-    }
-    if (!triggered6) {
-      window.addEventListener('scroll', scrollHandler6);
-      return () => window.removeEventListener('scroll', scrollHandler6);
-    }
-    if (!triggered7) {
-      window.addEventListener('scroll', scrollHandler7);
-      return () => window.removeEventListener('scroll', scrollHandler7);
-    }
-  }, [triggered1, triggered2, triggered3, triggered4, triggered5, triggered6, triggered7]);
+    const scrollHandler = (ref: React.RefObject<HTMLDivElement>) => () => {
+      if (ref && ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        const top = rect.top;
+        if (ref === ref7) {
+          if (top < (window.innerHeight * 2) / 3) {
+            ref.current.classList.add('ani2');
+          }
+        } else {
+          if (top < window.innerHeight / 2) {
+            ref.current.classList.add('ani2');
+          }
+        }
+      }
+    };
+
+    const handler = scrollHandler(ref);
+    const handler2 = scrollHandler(ref2);
+    const handler3 = scrollHandler(ref3);
+    const handler4 = scrollHandler(ref4);
+    const handler5 = scrollHandler(ref5);
+    const handler6 = scrollHandler(ref6);
+    const handler7 = scrollHandler(ref7);
+
+    window.addEventListener('scroll', handler);
+    window.addEventListener('scroll', handler2);
+    window.addEventListener('scroll', handler3);
+    window.addEventListener('scroll', handler4);
+    window.addEventListener('scroll', handler5);
+    window.addEventListener('scroll', handler6);
+    window.addEventListener('scroll', handler7);
+
+    return () => {
+      window.removeEventListener('scroll', handler);
+      window.removeEventListener('scroll', handler2);
+      window.removeEventListener('scroll', handler3);
+      window.removeEventListener('scroll', handler4);
+      window.removeEventListener('scroll', handler5);
+      window.removeEventListener('scroll', handler6);
+      window.removeEventListener('scroll', handler7);
+    };
+  }, []);
 
   const canvasRef = useRef(null);
-  const img = new Image();
-  img.src = 'images/カラフル１.jpg';
-  img.onload = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, ctx.width, ctx.height);
-    const pattern = ctx.createPattern(img, 'no-repeat');
-    ctx.fillStyle = pattern;
-    ctx.beginPath();
-    ctx.moveTo(25, 50);
-    ctx.lineTo(25, 550);
-    ctx.lineTo(575, 300);
-    ctx.fill();
-    ctx.fillStyle = 'blue';
-    ctx.beginPath();
-    ctx.moveTo(100, 150);
-    ctx.lineTo(100, 450);
-    ctx.lineTo(430, 300);
-    ctx.fill();
-    ctx.fillStyle = pattern;
-    ctx.beginPath();
-    ctx.moveTo(154, 220);
-    ctx.lineTo(154, 380);
-    ctx.lineTo(330, 300);
-    ctx.fill();
-  };
+  useEffect(() => {
+    const img = new Image();
+    img.src = 'images/カラフル１.jpg';
+    img.onload = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, ctx.width, ctx.height);
+      const pattern = ctx.createPattern(img, 'no-repeat');
+      ctx.fillStyle = pattern;
+      ctx.beginPath();
+      ctx.moveTo(25, 50);
+      ctx.lineTo(25, 550);
+      ctx.lineTo(575, 300);
+      ctx.fill();
+      ctx.fillStyle = 'blue';
+      ctx.beginPath();
+      ctx.moveTo(100, 150);
+      ctx.lineTo(100, 450);
+      ctx.lineTo(430, 300);
+      ctx.fill();
+      ctx.fillStyle = pattern;
+      ctx.beginPath();
+      ctx.moveTo(154, 220);
+      ctx.lineTo(154, 380);
+      ctx.lineTo(330, 300);
+      ctx.fill();
+    };
+  }, []);
 
   return (
     <Layout>
@@ -189,7 +120,7 @@ const Home: NextPage = () => {
         </Typography>
       </div>
       <section id={'title'}>
-        <div ref={ref1}>家庭教師　個人契約の新たな形態</div>
+        <div ref={ref}>家庭教師　個人契約の新たな形態</div>
       </section>
       <section id={'content'}>
         <ul style={{ listStyleType: 'none' }}>
