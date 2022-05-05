@@ -253,8 +253,8 @@ const Home: NextPage = () => {
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
-          border: 30px solid black;
-          border-radius: 40px;
+          border: 10px solid black;
+          border-radius: 20px;
           opacity: 0;
         }
         .bg {
@@ -268,7 +268,7 @@ const Home: NextPage = () => {
         #content {
           width: 100%;
           height: 1600px;
-          background: wheat;
+          background: #ffffee;
           position: relative;
         }
         #content div {
@@ -277,8 +277,8 @@ const Home: NextPage = () => {
           background: white;
           position: absolute;
           text-align: center;
-          border: 30px solid black;
-          border-radius: 40px;
+          border: 10px solid black;
+          border-radius: 20px;
           opacity: 0;
         }
         .item1 {
@@ -312,14 +312,14 @@ const Home: NextPage = () => {
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
-          border: 30px solid black;
-          border-radius: 40px;
+          border: 10px solid black;
+          border-radius: 20px;
           opacity: 0;
         }
         #process {
           width: 100%;
           height: 400px;
-          background: wheat;
+          background: #ffffee;
           position: relative;
         }
         #process div {
@@ -331,8 +331,8 @@ const Home: NextPage = () => {
           left: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
-          border: 30px solid black;
-          border-radius: 40px;
+          border: 10px solid black;
+          border-radius: 20px;
           opacity: 0;
         }
         @keyframes animation1 {
