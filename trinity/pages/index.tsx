@@ -5,7 +5,17 @@ import Head from 'next/head';
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Layout from '../components/layout';
 
+interface Props {
+  x: number;
+  y: number;
+  r: number;
+}
+
 const Home: NextPage = () => {
+  const num = 50;
+
+  const [circle, setCircle] = useState<Props[]>([]);
+
   const divRef = useRef<HTMLDivElement>(null);
   const divRef2 = useRef<HTMLDivElement>(null);
   const divRef3 = useRef<HTMLDivElement>(null);
@@ -13,8 +23,26 @@ const Home: NextPage = () => {
   const divRef5 = useRef<HTMLDivElement>(null);
   const divRef6 = useRef<HTMLDivElement>(null);
   const divRef7 = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef(null);
-  const canvasRef2 = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef2 = useRef<HTMLCanvasElement>(null);
+  const updateRef = useRef<() => void>();
+
+  const update = useCallback(() => {
+    const canvas = canvasRef.current;
+    const tmp = [];
+    if (canvas) {
+      for (let i = 0; i < num; i++) {
+        if (circle[i].x + 10 > canvas.width + circle[i].r) {
+          const coordX = -circle[i].r;
+          tmp.push({ ...circle[i], x: coordX });
+        } else {
+          const coordX = circle[i].x + 2;
+          tmp.push({ ...circle[i], x: coordX });
+        }
+      }
+      setCircle(tmp);
+    }
+  }, [circle]);
 
   useEffect(() => {
     const scrollHandler = (ref: React.RefObject<HTMLDivElement>) => () => {
@@ -106,13 +134,10 @@ const Home: NextPage = () => {
     };
   }, []);
 
-  interface Props {
-    x: number;
-    y: number;
-    r: number;
-  }
-  const num = 50;
-  const [circle, setCircle] = useState<Props[]>([]);
+  useEffect(() => {
+    updateRef.current = update;
+  }, [update]);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     for (let i = 0; i < num; i++) {
@@ -121,6 +146,10 @@ const Home: NextPage = () => {
       const radius = Math.floor(Math.random() * 20);
       circle.push({ x: coordX, y: coordY, r: radius });
     }
+    const timerID = setInterval(() => updateRef.current(), 50);
+    return () => {
+      clearInterval(timerID);
+    };
   }, []);
 
   useEffect(() => {
@@ -133,25 +162,6 @@ const Home: NextPage = () => {
       ctx.arc(circle[i].x, circle[i].y, circle[i].r, 0, Math.PI * 2, true);
       ctx.fill();
     }
-    const update = () => {
-      const canvas = canvasRef.current;
-      const tmp = [];
-      for (let i = 0; i < num; i++) {
-        if (circle[i].x + 10 > canvas.width + circle[i].r) {
-          const coordX = -circle[i].r;
-          tmp.push({ ...circle[i], x: coordX });
-        } else {
-          const coordX = circle[i].x + 2;
-          tmp.push({ ...circle[i], x: coordX });
-        }
-      }
-      setCircle(tmp);
-    };
-
-    const timerID = setInterval(update, 50);
-    return () => {
-      clearInterval(timerID);
-    };
   }, [circle]);
 
   return (
