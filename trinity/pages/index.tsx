@@ -1,3 +1,4 @@
+import { createContext } from 'vm';
 import { Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -5,20 +6,22 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Layout from '../components/layout';
 
 const Home: NextPage = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const ref2 = useRef<HTMLDivElement>(null);
-  const ref3 = useRef<HTMLDivElement>(null);
-  const ref4 = useRef<HTMLDivElement>(null);
-  const ref5 = useRef<HTMLDivElement>(null);
-  const ref6 = useRef<HTMLDivElement>(null);
-  const ref7 = useRef<HTMLDivElement>(null);
+  const divRef = useRef<HTMLDivElement>(null);
+  const divRef2 = useRef<HTMLDivElement>(null);
+  const divRef3 = useRef<HTMLDivElement>(null);
+  const divRef4 = useRef<HTMLDivElement>(null);
+  const divRef5 = useRef<HTMLDivElement>(null);
+  const divRef6 = useRef<HTMLDivElement>(null);
+  const divRef7 = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef(null);
+  const canvasRef2 = useRef(null);
 
   useEffect(() => {
     const scrollHandler = (ref: React.RefObject<HTMLDivElement>) => () => {
       if (ref && ref.current) {
         const rect = ref.current.getBoundingClientRect();
         const top = rect.top;
-        if (ref === ref7) {
+        if (ref === divRef7) {
           if (top < (window.innerHeight * 2) / 3) {
             ref.current.classList.add('ani2');
           }
@@ -30,13 +33,13 @@ const Home: NextPage = () => {
       }
     };
 
-    const handler = scrollHandler(ref);
-    const handler2 = scrollHandler(ref2);
-    const handler3 = scrollHandler(ref3);
-    const handler4 = scrollHandler(ref4);
-    const handler5 = scrollHandler(ref5);
-    const handler6 = scrollHandler(ref6);
-    const handler7 = scrollHandler(ref7);
+    const handler = scrollHandler(divRef);
+    const handler2 = scrollHandler(divRef2);
+    const handler3 = scrollHandler(divRef3);
+    const handler4 = scrollHandler(divRef4);
+    const handler5 = scrollHandler(divRef5);
+    const handler6 = scrollHandler(divRef6);
+    const handler7 = scrollHandler(divRef7);
 
     window.addEventListener('scroll', handler);
     window.addEventListener('scroll', handler2);
@@ -57,12 +60,28 @@ const Home: NextPage = () => {
     };
   }, []);
 
-  const canvasRef = useRef(null);
   useEffect(() => {
+    const canvas = canvasRef.current;
+    const canvas2 = canvasRef2.current;
+    const displayWidth = canvas.clientWidth;
+    const displayWidth2 = canvas2.clientWidth;
+    const displayHeight = canvas.clientHeight;
+    const displayHeight2 = canvas2.clientHeight;
+
+    if (canvas.width != displayWidth || canvas.height != displayHeight) {
+      canvas.width = displayWidth;
+      canvas.height = displayHeight;
+    }
+
+    if (canvas2.width != displayWidth2 || canvas2.height != displayHeight2) {
+      canvas2.width = displayWidth;
+      canvas2.height = displayHeight;
+    }
+
     const img = new Image();
     img.src = 'images/カラフル１.jpg';
     img.onload = () => {
-      const canvas = canvasRef.current;
+      const canvas = canvasRef2.current;
       const ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, ctx.width, ctx.height);
       const pattern = ctx.createPattern(img, 'no-repeat');
@@ -87,17 +106,80 @@ const Home: NextPage = () => {
     };
   }, []);
 
+  interface Props {
+    x: number;
+    y: number;
+    r: number;
+  }
+  const num = 50;
+  const [circle, setCircle] = useState<Props[]>([]);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    for (let i = 0; i < num; i++) {
+      const coordX = Math.random() * canvas.width;
+      const coordY = Math.floor(Math.random() * canvas.height);
+      const radius = Math.floor(Math.random() * 20);
+      circle.push({ x: coordX, y: coordY, r: radius });
+    }
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#EEEEEE';
+    for (let i = 0; i < num; i++) {
+      ctx.beginPath();
+      ctx.arc(circle[i].x, circle[i].y, circle[i].r, 0, Math.PI * 2, true);
+      ctx.fill();
+    }
+    const update = () => {
+      const canvas = canvasRef.current;
+      const tmp = [];
+      for (let i = 0; i < num; i++) {
+        if (circle[i].x + 10 > canvas.width + circle[i].r) {
+          const coordX = -circle[i].r;
+          tmp.push({ ...circle[i], x: coordX });
+        } else {
+          const coordX = circle[i].x + 2;
+          tmp.push({ ...circle[i], x: coordX });
+        }
+      }
+      setCircle(tmp);
+    };
+
+    const timerID = setInterval(update, 50);
+    return () => {
+      clearInterval(timerID);
+    };
+  }, [circle]);
+
   return (
     <Layout>
       <Head>
         <title>トップページ</title>
       </Head>
-      <div style={{ position: 'relative', height: '700px' }}>
+      <div style={{ width: '100%', height: '700px', position: 'relative' }}>
+        <canvas
+          width={700}
+          height={700}
+          ref={canvasRef}
+          style={{
+            width: '100%',
+            height: '700px',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        ></canvas>
         <canvas
           width={600}
           height={600}
-          ref={canvasRef}
+          ref={canvasRef2}
           style={{
+            width: '600px',
+            height: '600px',
             position: 'absolute',
             top: '50%',
             left: '50%',
@@ -120,37 +202,37 @@ const Home: NextPage = () => {
         </Typography>
       </div>
       <section id={'title'}>
-        <div ref={ref}>家庭教師　個人契約の新たな形態</div>
+        <div ref={divRef}>家庭教師　個人契約の新たな形態</div>
       </section>
       <section id={'content'}>
         <ul style={{ listStyleType: 'none' }}>
           <li>
-            <div className={'item1'} ref={ref2}>
+            <div className={'item1'} ref={divRef2}>
               チームでサポート
             </div>
           </li>
           <li>
-            <div className={'item2'} ref={ref3}>
+            <div className={'item2'} ref={divRef3}>
               コンサルタントが最適な教師を紹介
             </div>
           </li>
           <li>
-            <div className={'item3'} ref={ref4}>
+            <div className={'item3'} ref={divRef4}>
               選び抜かれた参考書
             </div>
           </li>
           <li>
-            <div className={'item4'} ref={ref5}>
+            <div className={'item4'} ref={divRef5}>
               無理のないカリキュラムの作成
             </div>
           </li>
         </ul>
       </section>
       <section id={'price'}>
-        <div ref={ref6}>料金</div>
+        <div ref={divRef6}>料金</div>
       </section>
       <section id={'process'}>
-        <div ref={ref7}>ご契約までの流れ</div>
+        <div ref={divRef7}>ご契約までの流れ</div>
       </section>
       <style jsx>{`
         ul {
