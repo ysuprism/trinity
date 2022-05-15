@@ -33,12 +33,13 @@ const Layout: NextPage = ({ children }) => {
                 <MenuItem onClick={handleClose}>
                   <Link href='/contact'>お問い合わせ</Link>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>使用する教材</MenuItem>
+                <MenuItem onClick={handleClose}>合格実績</MenuItem>
               </Menu>
             </div>
           </Toolbar>
         </AppBar>
       </Box>
+      <Toolbar></Toolbar>
       {children}
     </div>
   );
