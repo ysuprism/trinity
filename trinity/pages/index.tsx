@@ -150,9 +150,10 @@ const Home: NextPage = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     for (let i = 0; i < num; i++) {
-      const coordX = Math.random() * canvas?.width;
-      const coordY = Math.floor(Math.random() * canvas?.height);
-      const radius = Math.floor(Math.random() * 20);
+      let radius = Math.random() * 15;
+      let coordX = Math.random() * canvas?.width;
+      let coordY = Math.random() * canvas?.height;
+      coordY = Math.min(Math.max(coordY, 2 * radius), canvas?.height - 2 * radius);
       circle.push({ x: coordX, y: coordY, r: radius });
     }
     const timerID = setInterval(() => updateRef.current(), 50);
@@ -178,15 +179,23 @@ const Home: NextPage = () => {
       <Head>
         <title>トップページ</title>
       </Head>
-      <div style={{ width: '100%', height: '700px', position: 'relative' }}>
+      <div
+        style={{
+          width: '100%',
+          height: '600px',
+          position: 'relative',
+          backgroundColor: '#4158D0',
+          backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)',
+        }}
+      >
         <canvas
           className='center'
-          width={700}
-          height={700}
+          width={600}
+          height={600}
           ref={canvasRef}
           style={{
             width: '100%',
-            height: '700px',
+            height: '600px',
           }}
         ></canvas>
         <canvas
