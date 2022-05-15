@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   const canvasRef2 = useRef<HTMLCanvasElement>(null);
   const updateRef = useRef<() => void>();
 
-  const update = useCallback(() => {
+  const updateCircle = useCallback(() => {
     const canvas = canvasRef.current;
     const tmp = [];
     if (canvas) {
@@ -51,10 +51,14 @@ const Home: NextPage = () => {
         if (ref === divRef7) {
           if (top < (window.innerHeight * 2) / 3) {
             ref.current.classList.add('fade-in');
+          } else {
+            ref.current.classList.remove('fade-in');
           }
         } else {
           if (top < window.innerHeight / 2) {
             ref.current.classList.add('fade-in');
+          } else {
+            ref.current.classList.remove('fade-in');
           }
         }
       }
@@ -140,8 +144,8 @@ const Home: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    updateRef.current = update;
-  }, [update]);
+    updateRef.current = updateCircle;
+  }, [updateCircle]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
