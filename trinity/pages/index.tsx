@@ -268,166 +268,149 @@ const Home: NextPage = () => {
           <br></br>Medical Trinity の目的です。
         </p>
       </section>
-      <section id='content'>
-        <h1 className='h1'>Concept</h1>
-        <ul style={{ listStyleType: 'none' }}>
-          <li>
-            <div className='outer center item1' ref={divRef2}>
-              <div className='inner center'>
-                <span className='num num-left'>01</span>
-                <h2 className='h2 h2-left'>医学部生等の優秀な先生が指導</h2>
-                <p className='p-left'>
-                  指導を担当する先生は、実際に最難関の受験を勝ち抜いた優秀な先生達です。（主に日本医科大学在籍生）
-                  <br></br>
-                  受験で身につけた高い学力と深い理解をベースにし、教科の躓きポイントをわかりやすくご説明いたします。
-                </p>
-                <img
-                  src='/images/class.jpg'
-                  alt='医学部生等の優秀な先生が指導'
-                  className='img img-right'
-                ></img>
-              </div>
+      <section id='concept'>
+        <h1>Concept</h1>
+        <div className='wrapper'>
+          <div className='outer' ref={divRef2}>
+            <div className='inner'>
+              <span className='left'>01</span>
+              <h2 className='left'>医学部生等の優秀な先生が指導</h2>
+              <p className='left'>
+                指導を担当する先生は、実際に最難関の受験を勝ち抜いた優秀な先生達です。（主に日本医科大学在籍生）
+                <br></br>
+                受験で身につけた高い学力と深い理解をベースにし、教科の躓きポイントをわかりやすくご説明いたします。
+              </p>
+              <img
+                src='/images/class.jpg'
+                alt='医学部生等の優秀な先生が指導'
+                className='right'
+              ></img>
             </div>
-          </li>
-          <li>
-            <div className='outer center item2' ref={divRef3}>
-              <div className='inner center'>
-                <span className='num num-right'>02</span>
-                <h2 className='h2 h2-right'>チームでサポート</h2>
-                <p className='p-right'>
-                  家庭教師や個別指導塾は生徒と先生の繋がりは密接である反面、先生同士の繋がりは薄くなりがちです。
-                  <br></br>
-                  Medical Trinity
-                  ではカリキュラムの作成、志望校対策、参考書選択などをチームで協力して行うため、1人で活動するよりも高品質な指導を提供可能です。
-                  <br></br>
-                  個別指導に特化した学生の（厳しめの）部活のようなものだと考えてください。
-                </p>
-                <img
-                  src='/images/discussion.jpg'
-                  alt='チームでサポート'
-                  className='img img-left'
-                ></img>
-              </div>
+          </div>
+          <div className='outer' ref={divRef3}>
+            <div className='inner'>
+              <span className='right'>02</span>
+              <h2 className='right'>チームでサポート</h2>
+              <p className='right'>
+                家庭教師や個別指導塾は生徒と先生の繋がりは密接である反面、先生同士の繋がりは薄くなりがちです。
+                <br></br>
+                Medical Trinity
+                ではカリキュラムの作成、志望校対策、参考書選択などをチームで協力して行うため、1人で活動するよりも高品質な指導を提供可能です。
+                <br></br>
+                個別指導に特化した学生の（厳しめの）部活のようなものだと考えてください。
+              </p>
+              <img src='/images/discussion.jpg' alt='チームでサポート' className='left'></img>
             </div>
-          </li>
-          <li>
-            <div className='outer center item3' ref={divRef4}>
-              <div className='inner center'>
-                <span className='num num-left'>03</span>
-                <h2 className='h2 h2-left'>最適な教師を紹介</h2>
-                <p className='p-left'>
-                  紹介役の教師が丁寧にヒアリングを行うことで、Medical Trinity
-                  の中から生徒さんに合った先生をご紹介致します。<br></br>
-                  ヒアリングシートはこちら<br></br>
-                  「外科を目指す先生が良い」「◯◯部の先生に教わりたい」などのご要望がございましたら、可能な限りご対応いたします。
-                </p>
-                <img
-                  src='/images/consult.jpg'
-                  alt='最適な教師を紹介'
-                  className='img img-right'
-                ></img>
-              </div>
+          </div>
+          <div className='outer' ref={divRef4}>
+            <div className='inner'>
+              <span className='left'>03</span>
+              <h2 className='left'>最適な教師を紹介</h2>
+              <p className='left'>
+                紹介役の教師が丁寧にヒアリングを行うことで、Medical Trinity
+                の中から生徒さんに合った先生をご紹介致します。<br></br>
+                ヒアリングシートはこちら<br></br>
+                「外科を目指す先生が良い」「◯◯部の先生に教わりたい」などのご要望がございましたら、可能な限りご対応いたします。
+              </p>
+              <img src='/images/consult.jpg' alt='最適な教師を紹介' className='right'></img>
             </div>
-          </li>
-          <li>
-            <div className='outer center item4' ref={divRef5}>
-              <div className='inner center'>
-                <span className='num num-right'>04</span>
-                <h2 className='h2 h2-right'>選び抜かれた参考書</h2>
-                <p className='p-right'>
-                  教師が使用したことがある教材（それで合格したもの等）、よく売れている教材、流行っている教材などから教師同士で話し合い、実際に効果的な教材を厳選して使用致します。
-                  <br></br>
-                  使用教材一覧はこちら<br></br>
-                  受験合格・定期テスト対策などの目的に合わせて正しい参考書を使うことで成績は必ず伸びます。
-                  <br></br>Medical Trinity では正しい参考書選びをサポートいたします。<br></br>
-                  ※ご要望がございましたら、一覧に無い教材を用いた指導も可能です。
-                </p>
-                <img src='/images/book.jpg' alt='選び抜かれた参考書' className='img img-left'></img>
-              </div>
+          </div>
+          <div className='outer' ref={divRef5}>
+            <div className='inner'>
+              <span className='right'>04</span>
+              <h2 className='right'>選び抜かれた参考書</h2>
+              <p className='right'>
+                教師が使用したことがある教材（それで合格したもの等）、よく売れている教材、流行っている教材などから教師同士で話し合い、実際に効果的な教材を厳選して使用致します。
+                <br></br>
+                使用教材一覧はこちら<br></br>
+                受験合格・定期テスト対策などの目的に合わせて正しい参考書を使うことで成績は必ず伸びます。
+                <br></br>Medical Trinity では正しい参考書選びをサポートいたします。<br></br>
+                ※ご要望がございましたら、一覧に無い教材を用いた指導も可能です。
+              </p>
+              <img src='/images/book.jpg' alt='選び抜かれた参考書' className='left'></img>
             </div>
-          </li>
-          <li>
-            <div className='outer center item5' ref={divRef6}>
-              <div className='inner center'>
-                <span className='num num-left'>05</span>
-                <h2 className='h2 h2-left'>常に最善のカリキュラム</h2>
-                <p className='p-left'>
-                  大人数の生徒に同じ授業を行う集団塾とは異なり、現在の学力・志望校・学習方法の癖等を把握して、無駄を徹底的に省いた生徒さん個人に最善のカリキュラムを提案致します。
-                  <br></br>
-                  生徒さんの予定に合わせて、無理のないカリキュラムを組むことで、着実な進歩を目指します。
-                </p>
-                <img
-                  src='/images/calendar.jpg'
-                  alt='常に最善のカリキュラム'
-                  className='img img-right'
-                ></img>
-              </div>
+          </div>
+          <div className='outer' ref={divRef6}>
+            <div className='inner'>
+              <span className='left'>05</span>
+              <h2 className='left'>常に最善のカリキュラム</h2>
+              <p className='left'>
+                大人数の生徒に同じ授業を行う集団塾とは異なり、現在の学力・志望校・学習方法の癖等を把握して、無駄を徹底的に省いた生徒さん個人に最善のカリキュラムを提案致します。
+                <br></br>
+                生徒さんの予定に合わせて、無理のないカリキュラムを組むことで、着実な進歩を目指します。
+              </p>
+              <img src='/images/calendar.jpg' alt='常に最善のカリキュラム' className='right'></img>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
       <section id='price'>
-        <h1 className='h1'>Fee</h1>
+        <h1>Fee</h1>
         <div className='outer center' ref={divRef7}>
-          <div className='inner center'>
+          <div className='inner'>
             <h2>料金</h2>
-            <div className='year year-left'>
+            <div className='year left'>
               高1・2<br></br>4000円/1時間
             </div>
-            <div className='year year-right'>
+            <div className='year right'>
               受験学年<br></br>5000円/1時間
             </div>
           </div>
         </div>
       </section>
       <section id='process'>
-        <h1 className='h1'>Contact</h1>
+        <h1>Contact</h1>
         <h2>ご契約までの流れ</h2>
-        <div className='outer center item6' ref={divRef8}>
-          <div className='inner center'>
-            <span className='num2 num-left'>01</span>
-            <p className='center'>ヒヤリングシートからお申込みください。</p>
+        <div className='wrapper'>
+          <div className='outer' ref={divRef8}>
+            <div className='inner'>
+              <span className='left'>01</span>
+              <p className='center'>ヒヤリングシートからお申込みください。</p>
+            </div>
           </div>
-        </div>
-        <div className='outer center item7' ref={divRef9}>
-          <div className='inner center'>
-            <span className='num2 num-left'>02</span>
-            <p className='center'>
-              ヒヤリングシートを元に、お電話もしくはメールで紹介役が丁寧に聞き取りを行い、生徒さんに最適な先生をお選びいたします。
-              <br></br>また、この際に初回授業で指導する内容のご相談もいたします。
-            </p>
+          <div className='outer' ref={divRef9}>
+            <div className='inner'>
+              <span className='left'>02</span>
+              <p className='center'>
+                ヒヤリングシートを元に、お電話もしくはメールで紹介役が丁寧に聞き取りを行い、生徒さんに最適な先生をお選びいたします。
+                <br></br>また、この際に初回授業で指導する内容のご相談もいたします。
+              </p>
+            </div>
           </div>
-        </div>
-        <div className='outer center item8' ref={divRef10}>
-          <div className='inner center'>
-            <span className='num2 num-left'>03</span>
-            <p className='center'>
-              紹介役が同伴し、ご自宅や喫茶店で、先生のご紹介、先生との1:1の体験授業を行います。
-              <br></br>総時間は90分程で、交通費以外のご料金はいただきません。<br></br>
-              また、体験授業で先生と相性が良くないと感じられた場合は、一度だけ先生を変更し、再度体験授業を申し込みいただくことも可能です。
-            </p>
+          <div className='outer' ref={divRef10}>
+            <div className='inner'>
+              <span className='left'>03</span>
+              <p className='center'>
+                紹介役が同伴し、ご自宅や喫茶店で、先生のご紹介、先生との1:1の体験授業を行います。
+                <br></br>総時間は90分程で、交通費以外のご料金はいただきません。<br></br>
+                また、体験授業で先生と相性が良くないと感じられた場合は、一度だけ先生を変更し、再度体験授業を申し込みいただくことも可能です。
+              </p>
+            </div>
           </div>
-        </div>
-        <div className='outer center item9' ref={divRef11}>
-          <div className='inner center'>
-            <span className='num2 num-left'>04</span>
-            <p className='center'>
-              体験授業を元に、ご紹介した先生の採用の可否を決定していただきます。<br></br>
-              採用の場合、初回授業日の決定をしていただき、いよいよ授業の開始となります。
-            </p>
+          <div className='outer' ref={divRef11}>
+            <div className='inner'>
+              <span className='left'>04</span>
+              <p className='center'>
+                体験授業を元に、ご紹介した先生の採用の可否を決定していただきます。<br></br>
+                採用の場合、初回授業日の決定をしていただき、いよいよ授業の開始となります。
+              </p>
+            </div>
           </div>
         </div>
       </section>
       <style jsx>{`
-        ul {
-          margin: 0;
-        }
-
         section {
           width: 100%;
-          height: 700px;
+          height: 600px;
           position: relative;
           color: white;
+        }
+
+        section h1 {
+          height: 5%;
+          margin: 0 5%;
+          font-size: 100px;
+          color: rgba(0, 255, 255, 0.5);
         }
 
         .center {
@@ -437,9 +420,19 @@ const Home: NextPage = () => {
           transform: translate(-50%, -50%);
         }
 
+        .wrapper {
+          width: 100%;
+          height: 95%;
+          display: flex;
+          flex-flow: column;
+          justify-content: space-around;
+          align-items: center;
+        }
+
         .outer {
-          width: 80%;
-          height: 80%;
+          width: 800px;
+          height: 400px;
+          position: relative;
           background-image: url('images/logo-color.png');
           border-radius: 20px;
           opacity: 0;
@@ -448,66 +441,14 @@ const Home: NextPage = () => {
         .inner {
           width: calc(100% - 20px);
           height: calc(100% - 20px);
-          margin: auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           background-color: white;
           color: black;
           border-radius: 20px;
           opacity: 1;
-        }
-
-        #title {
-          background-color: #000099;
-        }
-
-        #title h1 {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          text-align: center;
-          color: #f0e68c;
-          font-size: 45px;
-        }
-
-        #title p {
-          width: 80%;
-          position: absolute;
-          top: 20%;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 20px;
-          font-weight: bold;
-          overflow-wrap: break-word;
-        }
-
-        #title ul {
-          margin: 20px;
-        }
-
-        #title ul li span {
-          box-shadow: 0px -5px 3px -1px #ff0461 inset;
-        }
-
-        #content {
-          height: 2700px;
-        }
-
-        .h1 {
-          margin-top: 20px;
-          margin-left: 5%;
-          font-size: 100px;
-          color: rgba(0, 255, 255, 0.5);
-        }
-
-        #content div.outer {
-          height: 400px;
-          transform: translateX(-50%);
-        }
-
-        #content div.inner p {
-          width: 45%;
-          position: absolute;
-          top: 80px;
         }
 
         .item1 {
@@ -530,139 +471,108 @@ const Home: NextPage = () => {
           top: 2200px;
         }
 
-        .num {
-          font-size: 100px;
-          color: #ff9900;
+        .left {
+          left: 2.5%;
+        }
+
+        .right {
+          right: 2.5%;
+        }
+
+        #title {
+          background-color: #000099;
+        }
+
+        #title h1 {
+          margin: 0 auto;
+          text-align: center;
+          color: #f0e68c;
+          font-size: 45px;
+        }
+
+        #title p {
+          width: 80%;
+          margin: 50px auto;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        #title ul {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        #title ul li span {
+          box-shadow: 0px -5px 3px -1px #ff0461 inset;
+        }
+
+        #concept {
+          height: 2700px;
+        }
+
+        #concept .inner span {
           position: absolute;
           top: -70px;
-        }
-
-        .num2 {
           font-size: 100px;
-          color: #ff9999;
-          position: absolute;
-          top: 5px;
+          color: #ff9900;
         }
 
-        .num-left {
-          left: 10px;
-        }
-
-        .num-right {
-          left: calc(100% - 130px);
-        }
-
-        .h2 {
+        #concept .inner h2 {
           position: absolute;
           top: 20px;
         }
 
-        .h2-left {
-          left: 2%;
-        }
-
-        .h2-right {
-          left: 50%;
-        }
-
-        .p-left {
-          left: 5%;
-        }
-
-        .p-right {
-          left: 50%;
-        }
-
-        .img {
-          width: 40%;
+        #concept .inner p,
+        img {
+          width: 45%;
           position: absolute;
-          top: 25%;
+          top: 100px;
         }
 
-        .img-left {
-          left: 5%;
-        }
-
-        .img-right {
-          left: 55%;
+        #concept .inner p {
+          margin: 0;
         }
 
         #price {
-          height: 800px;
           background-color: #eeeeee;
         }
 
-        #price div.outer {
-          height: 400px;
-          top: 200px;
-          transform: translateX(-50%);
-        }
-
         #price h2 {
+          margin: 20px auto;
           text-align: center;
           font-size: 50px;
-          margin-top: 20px;
         }
 
         .year {
-          width: 40%;
+          width: 45%;
           height: 200px;
           position: absolute;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translateY(-30%);
           font-size: 50px;
           text-align: center;
-          display: flex;
-          justify-content: center;
-          align-content: center;
-          flex-direction: column;
-        }
-
-        .year-left {
-          left: 5%;
-        }
-
-        .year-right {
-          left: 55%;
         }
 
         #process {
           height: 2300px;
         }
 
-        #process p {
-          font-size: 20px;
-        }
-
         #process h2 {
-          position: absolute;
-          top: 130px;
-          left: 50%;
-          transform: translateX(-50%);
+          margin: 30px auto 0;
           text-align: center;
+          font-size: 50px;
           color: black;
-          font-size: 40px;
         }
 
-        #process div.outer {
-          height: 400px;
-          transform: translateX(-50%);
+        #process .inner span {
+          position: absolute;
+          top: 5px;
+          font-size: 100px;
+          color: #ff9999;
         }
 
-        .item6 {
-          top: 300px;
-        }
-
-        .item7 {
-          top: 800px;
-        }
-
-        .item8 {
-          top: 1300px;
-        }
-
-        .item9 {
-          top: 1800px;
+        #process .inner p {
+          font-size: 20px;
         }
 
         @keyframes fade-in {
