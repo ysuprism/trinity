@@ -24,9 +24,6 @@ const Home: NextPage = () => {
   const divRef6 = useRef<HTMLDivElement>(null);
   const divRef7 = useRef<HTMLDivElement>(null);
   const divRef8 = useRef<HTMLDivElement>(null);
-  const divRef9 = useRef<HTMLDivElement>(null);
-  const divRef10 = useRef<HTMLDivElement>(null);
-  const divRef11 = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasRef2 = useRef<HTMLCanvasElement>(null);
   const updateRef = useRef<() => void>();
@@ -53,14 +50,8 @@ const Home: NextPage = () => {
       if (ref && ref.current) {
         const rect = ref.current.getBoundingClientRect();
         const top = rect.top;
-        if (ref === divRef11) {
-          if (top < window.innerHeight) {
-            ref.current.classList.add('fade-in');
-          }
-        } else {
-          if (top < window.innerHeight / 2) {
-            ref.current.classList.add('fade-in');
-          }
+        if (top < window.innerHeight / 2) {
+          ref.current.classList.add('fade-in');
         }
       }
     };
@@ -73,9 +64,6 @@ const Home: NextPage = () => {
     const handler6 = scrollHandler(divRef6);
     const handler7 = scrollHandler(divRef7);
     const handler8 = scrollHandler(divRef8);
-    const handler9 = scrollHandler(divRef9);
-    const handler10 = scrollHandler(divRef10);
-    const handler11 = scrollHandler(divRef11);
 
     window.addEventListener('scroll', handler);
     window.addEventListener('scroll', handler2);
@@ -85,9 +73,6 @@ const Home: NextPage = () => {
     window.addEventListener('scroll', handler6);
     window.addEventListener('scroll', handler7);
     window.addEventListener('scroll', handler8);
-    window.addEventListener('scroll', handler9);
-    window.addEventListener('scroll', handler10);
-    window.addEventListener('scroll', handler11);
 
     return () => {
       window.removeEventListener('scroll', handler);
@@ -98,9 +83,6 @@ const Home: NextPage = () => {
       window.removeEventListener('scroll', handler6);
       window.removeEventListener('scroll', handler7);
       window.removeEventListener('scroll', handler8);
-      window.removeEventListener('scroll', handler9);
-      window.removeEventListener('scroll', handler10);
-      window.removeEventListener('scroll', handler11);
     };
   }, []);
 
