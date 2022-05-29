@@ -54,7 +54,7 @@ const Home: NextPage = () => {
         const rect = ref.current.getBoundingClientRect();
         const top = rect.top;
         if (ref === divRef11) {
-          if (top < (window.innerHeight * 2) / 3) {
+          if (top < window.innerHeight) {
             ref.current.classList.add('fade-in');
           }
         } else {
@@ -236,9 +236,7 @@ const Home: NextPage = () => {
       <section id='title'>
         <h1>家庭教師個人契約の新たな形</h1>
         <p>
-          従来の家庭教師個人契約は、教育を受ける側が掲示板などで先生を探し、選ぶ形となっています。
-          <br></br>
-          この方式は色々な先生を選ぶことができ、金額等条件も自由であるため選択肢の幅が広い反面
+          従来の家庭教師個人契約は、教育を受ける側が掲示板などで先生を探し、選ぶ形となっています。この方式は色々な先生を選ぶことができ、金額等条件も自由であるため選択肢の幅が広い反面
           <ul>
             <li>
               <span>先生選びに手間がかかる</span>
@@ -250,8 +248,7 @@ const Home: NextPage = () => {
               <span>明確なカリキュラム設定がないため、勉強のゴールが見えない...</span>
             </li>
           </ul>
-          などの問題が発生しがちです。<br></br>
-          Medical Trinity では、この問題を解決すべく
+          などの問題が発生しがちです。Medical Trinity では、この問題を解決すべく
           <ul>
             <li>
               <span>紹介役の教師が丁寧にヒアリング、教師をご紹介</span>
@@ -263,9 +260,7 @@ const Home: NextPage = () => {
               <span>チームで相互に高め合い、指導を形成していく</span>
             </li>
           </ul>
-          という新たな形態をとります。<br></br>
-          この仕組みと学生同士の積極的な活動で先生選びの手間を省き、質の高い指導を提供することが
-          <br></br>Medical Trinity の目的です。
+          という新たな形態をとります。この仕組みと学生同士の積極的な活動で先生選びの手間を省き、質の高い指導を提供することがMedical Trinity の目的です。
         </p>
       </section>
       <section id='concept'>
@@ -346,7 +341,7 @@ const Home: NextPage = () => {
       </section>
       <section id='price'>
         <h1>Fee</h1>
-        <div className='outer center' ref={divRef7}>
+        <div className='outer' ref={divRef7}>
           <div className='inner'>
             <h2>料金</h2>
             <div className='year left'>
@@ -361,14 +356,14 @@ const Home: NextPage = () => {
       <section id='process'>
         <h1>Contact</h1>
         <h2>ご契約までの流れ</h2>
-        <div className='wrapper'>
-          <div className='outer' ref={divRef8}>
+        <div className='wrapper' ref={divRef8}>
+          <div className='outer'>
             <div className='inner'>
               <span className='left'>01</span>
               <p className='center'>ヒヤリングシートからお申込みください。</p>
             </div>
           </div>
-          <div className='outer' ref={divRef9}>
+          <div className='outer'>
             <div className='inner'>
               <span className='left'>02</span>
               <p className='center'>
@@ -377,7 +372,7 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
-          <div className='outer' ref={divRef10}>
+          <div className='outer'>
             <div className='inner'>
               <span className='left'>03</span>
               <p className='center'>
@@ -387,7 +382,7 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
-          <div className='outer' ref={divRef11}>
+          <div className='outer'>
             <div className='inner'>
               <span className='left'>04</span>
               <p className='center'>
@@ -401,16 +396,19 @@ const Home: NextPage = () => {
       <style jsx>{`
         section {
           width: 100%;
-          height: 600px;
-          position: relative;
           color: white;
+          overflow: hidden;
         }
 
         section h1 {
-          height: 5%;
-          margin: 0 5%;
+          margin: 20px;
+          padding-left: 5%;
           font-size: 100px;
           color: rgba(0, 255, 255, 0.5);
+        }
+
+        p {
+          margin: 0;
         }
 
         .center {
@@ -422,7 +420,6 @@ const Home: NextPage = () => {
 
         .wrapper {
           width: 100%;
-          height: 95%;
           display: flex;
           flex-flow: column;
           justify-content: space-around;
@@ -480,34 +477,40 @@ const Home: NextPage = () => {
         }
 
         #title {
+          height: 600px;
           background-color: #000099;
         }
 
         #title h1 {
-          margin: 0 auto;
+          margin: 40px;
+          padding-left: 0;
           text-align: center;
+          font-size: 50px;
           color: #f0e68c;
-          font-size: 45px;
         }
 
         #title p {
-          width: 80%;
-          margin: 50px auto;
+          width: 60%;
+          margin: 0 auto;
           font-size: 20px;
           font-weight: bold;
         }
 
         #title ul {
-          margin-top: 20px;
-          margin-bottom: 20px;
+          width: 90%;
+          margin: 20px auto;
         }
 
-        #title ul li span {
+        #title span {
           box-shadow: 0px -5px 3px -1px #ff0461 inset;
         }
 
         #concept {
           height: 2700px;
+        }
+
+        #concept .wrapper {
+          height: 2500px;
         }
 
         #concept .inner span {
@@ -529,12 +532,14 @@ const Home: NextPage = () => {
           top: 100px;
         }
 
-        #concept .inner p {
-          margin: 0;
-        }
-
         #price {
           background-color: #eeeeee;
+          height: 650px;
+        }
+
+        #price .outer {
+          left: 50%;
+          transform: translateX(-50%);
         }
 
         #price h2 {
@@ -554,14 +559,24 @@ const Home: NextPage = () => {
         }
 
         #process {
-          height: 2300px;
+          height: 1500px;
         }
 
         #process h2 {
-          margin: 30px auto 0;
+          margin: 20px auto;
           text-align: center;
           font-size: 50px;
           color: black;
+        }
+
+        #process .wrapper {
+          height: 1200px;
+          opacity: 0;
+        }
+
+        #process .outer {
+          height: 250px;
+          opacity: 1;
         }
 
         #process .inner span {
