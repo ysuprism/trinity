@@ -369,21 +369,21 @@ const Home: NextPage = () => {
         <div className='wrapper' ref={divRef8}>
           <div className='outer'>
             <div className='inner'>
-              <span className='span-left'>01</span>
-              <p>ヒヤリングシートからお申込みください。</p>
+              <span className=''>01</span>
+              <p className=''>ヒヤリングシートからお申込みください。</p>
             </div>
           </div>
           <div className='outer'>
             <div className='inner'>
-              <span className='span-left'>02</span>
-              <p>
+              <span className=''>02</span>
+              <p className=''>
                 ヒヤリングシートを元に、お電話もしくはメールで紹介役が丁寧に聞き取りを行い、生徒さんに最適な先生をお選びいたします。また、この際に初回授業で指導する内容のご相談もいたします。
               </p>
             </div>
           </div>
           <div className='outer'>
             <div className='inner'>
-              <span className='span-left'>03</span>
+              <span className=''>03</span>
               <p>
                 紹介役が同伴し、ご自宅や喫茶店で、先生のご紹介、先生との1:1の体験授業を行います。
                 総時間は90分程で、交通費以外のご料金はいただきません。また、体験授業で先生と相性が良くないと感じられた場合は、一度だけ先生を変更し、再度体験授業を申し込みいただくことも可能です。
@@ -392,7 +392,7 @@ const Home: NextPage = () => {
           </div>
           <div className='outer'>
             <div className='inner'>
-              <span className='span-left'>04</span>
+              <span className=''>04</span>
               <p>
                 体験授業を元に、ご紹介した先生の採用の可否を決定していただきます。採用の場合、初回授業日の決定をしていただき、いよいよ授業の開始となります。
               </p>
@@ -545,17 +545,25 @@ const Home: NextPage = () => {
           color: black;
         }
 
+        #process span {
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          font-size: 60px;
+          color: #FF6699;
+        }
+
+        #process p {
+          width: 60%;
+          margin: 0 auto 40px;
+        }
+
         #process .wrapper {
           opacity: 0;
         }
 
         #process .outer {
           opacity: 1;
-        }
-
-        #process p {
-          width: 60%;
-          margin: 0 auto 40px;
         }
 
         @keyframes fade-in {
