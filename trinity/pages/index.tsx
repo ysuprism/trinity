@@ -486,7 +486,7 @@ const Home: NextPage = () => {
         }
 
         .h1 {
-          margin-bottom: 40px;
+          margin: 0 40px 40px;
           font-size: 100px;
           color: rgba(0, 255, 255, 0.5);
         }
