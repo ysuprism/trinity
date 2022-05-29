@@ -276,7 +276,7 @@ const Home: NextPage = () => {
                   <br></br>
                   受験で身につけた高い学力と深い理解をベースにし、教科の躓きポイントをわかりやすくご説明いたします。
                 </p>
-                <img src='/images/class.jpg' alt='医学部生等の優秀な先生が指導'></img>
+                <img className='img-right' src='/images/class.jpg' alt='医学部生等の優秀な先生が指導'></img>
               </div>
             </div>
           </div>
@@ -285,6 +285,7 @@ const Home: NextPage = () => {
               <span className='span-right'>02</span>
               <h2 className='h2-right'>チームでサポート</h2>
               <div className='wrapper2'>
+                <img className='img-left' src='/images/discussion.jpg' alt='チームでサポート'></img>
                 <p>
                   家庭教師や個別指導塾は生徒と先生の繋がりは密接である反面、先生同士の繋がりは薄くなりがちです。
                   <br></br>
@@ -293,7 +294,6 @@ const Home: NextPage = () => {
                   <br></br>
                   個別指導に特化した学生の（厳しめの）部活のようなものだと考えてください。
                 </p>
-                <img src='/images/discussion.jpg' alt='チームでサポート'></img>
               </div>
             </div>
           </div>
@@ -308,7 +308,7 @@ const Home: NextPage = () => {
                   ヒアリングシートはこちら<br></br>
                   「外科を目指す先生が良い」「◯◯部の先生に教わりたい」などのご要望がございましたら、可能な限りご対応いたします。
                 </p>
-                <img src='/images/consult.jpg' alt='最適な教師を紹介'></img>
+                <img className='img-right' src='/images/consult.jpg' alt='最適な教師を紹介'></img>
               </div>
             </div>
           </div>
@@ -317,6 +317,7 @@ const Home: NextPage = () => {
               <span className='span-right'>04</span>
               <h2 className='h2-right'>選び抜かれた参考書</h2>
               <div className='wrapper2'>
+                <img className='img-left' src='/images/book.jpg' alt='選び抜かれた参考書'></img>
                 <p>
                   教師が使用したことがある教材（それで合格したもの等）、よく売れている教材、流行っている教材などから教師同士で話し合い、実際に効果的な教材を厳選して使用致します。
                   <br></br>
@@ -325,7 +326,6 @@ const Home: NextPage = () => {
                   <br></br>Medical Trinity では正しい参考書選びをサポートいたします。<br></br>
                   ※ご要望がございましたら、一覧に無い教材を用いた指導も可能です。
                 </p>
-                <img src='/images/book.jpg' alt='選び抜かれた参考書'></img>
               </div>
             </div>
           </div>
@@ -339,7 +339,7 @@ const Home: NextPage = () => {
                   <br></br>
                   生徒さんの予定に合わせて、無理のないカリキュラムを組むことで、着実な進歩を目指します。
                 </p>
-                <img src='/images/calendar.jpg' alt='常に最善のカリキュラム'></img>
+                <img className='img-right' src='/images/calendar.jpg' alt='常に最善のカリキュラム'></img>
               </div>
             </div>
           </div>
@@ -479,14 +479,12 @@ const Home: NextPage = () => {
           width: 50%;
         }
 
-        #concept img {
-          margin-left: 20px;
+        .img-left {
+          margin-right: 20px;
         }
 
-        .h1 {
-          margin-bottom: 40px;
-          font-size: 100px;
-          color: rgba(0, 255, 255, 0.5);
+        .img-right {
+          margin-left: 20px;
         }
 
         .span-left {
@@ -503,6 +501,12 @@ const Home: NextPage = () => {
           right: 20px;
           font-size: 100px;
           color: #ff9900;
+        }
+
+        .h1 {
+          margin-bottom: 40px;
+          font-size: 100px;
+          color: rgba(0, 255, 255, 0.5);
         }
 
         .h2-left {
